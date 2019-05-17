@@ -1,0 +1,5 @@
+Task0: O(1)
+Task1: O(n)
+Task2: O(n²)
+Task3: O(log(n))
+Task4: O(n log(n))
