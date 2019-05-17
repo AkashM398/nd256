@@ -19,9 +19,14 @@ How many different telephone numbers are there in the records?
 Print a message:
 "There are <count> different telephone numbers in the records."
 """
-all_numbers = set()
-for number in (texts + calls):
-    all_numbers.add(number[0])
-    all_numbers.add(number[1])
+def tel_numbers():
+    """Returns set of all telephone numbers in texts and calls
+    """
+    all_numbers = set()
+    for number in (texts + calls):
+        all_numbers.add(number[0])
+        all_numbers.add(number[1])
+    
+    return all_numbers
 
-print(f"There are {len(all_numbers)} different telephone numbers in the records.")
+print(f"There are {len(tel_numbers())} different telephone numbers in the records.")
