@@ -4,8 +4,6 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-from Task2 import callers, recipients
-
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
@@ -32,9 +30,11 @@ for text in texts:
     texters.append(text[0])
     text_recipients.append(text[1])
 
+recipients = [c[1] for c in calls]
+
 telemarketers = []
-others = []
-for caller in callers:
+for call in calls:
+    caller = call[0]
     if caller not in recipients and caller not in texters and caller not in text_recipients:
         telemarketers.append(caller)
         
