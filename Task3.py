@@ -4,8 +4,6 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-from Task2 import callers, recipients
-
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
@@ -35,10 +33,13 @@ Print the answer as part of a message:
  <list of codes>
 The list of codes should be print out one per line in lexicographic order with no duplicates.
 """
+
 codes_and_prefixes_called_from_bangalore = []
-for caller_index, number in enumerate(callers):
-  if number.startswith("(080)"):
-    recipient = recipients[caller_index]
+
+for call in calls:
+  caller = call[0]
+  if caller.startswith("(080)"):
+    recipient = call[1]
     if recipient.startswith("(0"):
       area_code = recipient.split(")")[0][1:]
       codes_and_prefixes_called_from_bangalore.append(area_code)
