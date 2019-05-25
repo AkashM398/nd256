@@ -62,4 +62,4 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 percentage_calls = (codes_and_prefixes_called_from_bangalore.count("080") / len(codes_and_prefixes_called_from_bangalore)) * 100
-print(f"\n{percentage_calls} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+print(f"\n{percentage_calls:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
