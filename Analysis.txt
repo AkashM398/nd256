@@ -1,5 +1,20 @@
-Task0: O(1)
-Task1: O(n)
-Task2: O(n²)
-Task3: O(log(n))
-Task4: O(n log(n))
+Task0
+    Runtime Analysis: O(1)
+    Explanation: My approach to solve the task involves looking up a value in nested array, which takes constant time since the indices are known beforehand.
+    
+Task1
+    Runtime Analysis: O(n)
+    Explanation: My approach to solve the task involves iterating over items in texts and calls array, which takes linear time i.e the longer the texts and calls arrays are respectively,
+                the longer it takes to arrive at the total number of unique telephone numbers.
+
+Task2
+    Runtime Analysis: O(n²)
+    Explanation: My approach to solve the task involves two for-loop iterations; through calls array nested in one looping through all unique telephone numbers. The nesting results in taking quadratic time to arrive at solution.
+
+Task3
+    Runtime Analysis: O(n)
+    Explanation: My approach to solve the task involves iterating through the calls array and checking for patterns that fit the solution. This takes linear time.
+
+Task4
+    Runtime Analysis: O(n)
+    Explanation: My approach to solve the task involves iterating through the texts and calls arrays separately. Arriving at the solution would take longer if both arrays were to grow, hence linear time.
