@@ -33,6 +33,7 @@ class RouteTrie:
 
         return current_node.handler
 
+
 # The Router class will wrap the Trie and handler
 class Router:
     def __init__(self, route_handler):
@@ -69,18 +70,27 @@ class Router:
 
         return route_paths
 
+
 # Here are some test cases and expected outputs you can use to test your implementation
 
 # create the router and add a route
-router = Router("root handler") # remove the 'not found handler' if you did not implement this
+router = Router(
+    "root handler"
+)  # remove the 'not found handler' if you did not implement this
 router.add_handler("/home/about", "about handler")  # add a route
 router.add_handler("/hello/lang/en", "hello")
 router.add_handler("/hello/lang/es", "no hablo ingles")
 # some lookups with the expected output
-print(router.lookup("/")) # should print 'root handler'
-print(router.lookup("/home")) # should print 'not found handler' or None if you did not implement one
-print(router.lookup("/home/about")) # should print 'about handler'
-print(router.lookup("/home/about/")) # should print 'about handler' or None if you did not handle trailing slashes
-print(router.lookup("/home/about/me")) # should print 'not found handler' or None if you did not implement one
+print(router.lookup("/"))  # should print 'root handler'
+print(
+    router.lookup("/home")
+)  # should print 'not found handler' or None if you did not implement one
+print(router.lookup("/home/about"))  # should print 'about handler'
+print(
+    router.lookup("/home/about/")
+)  # should print 'about handler' or None if you did not handle trailing slashes
+print(
+    router.lookup("/home/about/me")
+)  # should print 'not found handler' or None if you did not implement one
 print(router.lookup("/hello/lang/en/"))
 print(router.lookup("/hello/lang/es"))
