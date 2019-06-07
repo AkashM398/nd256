@@ -11,6 +11,7 @@ def sort(input_list):
 
     return merge(sorted_left, sorted_right)
 
+
 def merge(left, right):
     merged = []
     left_index = 0
@@ -55,6 +56,7 @@ def rearrange_digits(input_list):
 
     return [num_1, num_2]
 
+
 def test_function(test_case):
     output = rearrange_digits(test_case[0])
     solution = test_case[1]
@@ -62,6 +64,7 @@ def test_function(test_case):
         print("Pass")
     else:
         print("Fail")
+
 
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
