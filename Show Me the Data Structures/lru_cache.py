@@ -9,7 +9,6 @@ class DoubleLinkedListNode(object):
 
 
 class LRU_Cache(object):
-
     def __init__(self, capacity: int):
         self._cache = dict()
         self.capacity = capacity
@@ -41,7 +40,6 @@ class LRU_Cache(object):
             node_key = list(self._cache.keys())[list(self._cache.values()).index(node)]
             del self._cache[node_key]
 
-       
     def _add(self, node):
         last_node = self.tail.previous
         last_node.next = node
@@ -71,11 +69,17 @@ class LRU_Cache(object):
 
 
 our_cache = LRU_Cache(3)
-our_cache.set(1, 1); print(our_cache) # [1]
-our_cache.set(2, 2); print(our_cache) # [2, 1]
-our_cache.set(3, 3); print(our_cache) # [3, 2, 1]
-our_cache.set(4, 4); print(our_cache) # [4, 3, 2]
-our_cache.get(3); print(our_cache) # [3, 4, 2]
-print(our_cache.get(1)) # returns -1
-print(our_cache.get(2)) # returns 2
-print(our_cache.get(3)) # return 3
+our_cache.set(1, 1)
+print(our_cache)  # [1]
+our_cache.set(2, 2)
+print(our_cache)  # [2, 1]
+our_cache.set(3, 3)
+print(our_cache)  # [3, 2, 1]
+our_cache.set(4, 4)
+print(our_cache)  # [4, 3, 2]
+our_cache.get(3)
+print(our_cache)  # [3, 4, 2]
+print(our_cache.get(1))  # returns -1
+print(our_cache.get(2))  # returns 2
+print(our_cache.get(3))  # return 3
+print(our_cache.get(9))  # return -1
