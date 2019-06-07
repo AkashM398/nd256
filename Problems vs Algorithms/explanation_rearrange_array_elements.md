@@ -1,6 +1,6 @@
 ### Code Design
 
-I implemented my using merge sort algorithm to sort the input array, so as to pick the digits that would form solution in reverse order.
+I implemented my solution using merge sort algorithm to sort the input array, so as to pick the digits that would form solution in reverse order.
 
 ### Efficiency
 

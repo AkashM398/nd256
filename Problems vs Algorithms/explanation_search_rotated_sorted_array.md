@@ -1,6 +1,6 @@
 ### Code Design
 
-I implemented my using recursive binary search algorithm as a nested method in the `rotated_array_search` for easier usage of the number variable.
+I implemented my solution using recursive binary search algorithm as a nested method in the `rotated_array_search` for easier usage of the number variable.
 
 ### Efficiency
 

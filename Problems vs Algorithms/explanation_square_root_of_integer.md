@@ -1,6 +1,6 @@
 ### Code Design
 
-I implemented my using iterative binary search algorithm. I am setting the `end_number` to be half the input number to reduce the search space for the algorithm. The square root of a number is lesser than half the number. If the input number is 0 or 1, the algorithm terminates early by returning the number.
+I implemented my solution using iterative binary search algorithm. I am setting the `end_number` to be half the input number to reduce the search space for the algorithm. The square root of a number is lesser than half the number. If the input number is 0 or 1, the algorithm terminates early by returning the number.
 
 ### Efficiency
 
