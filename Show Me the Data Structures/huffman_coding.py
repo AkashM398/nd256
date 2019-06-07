@@ -14,6 +14,7 @@ class BinaryTreeNode(object):
     def __lt__(self, other_node):
         return other_node.weight > self.weight
 
+
 class HuffmanCodingTree(object):
     def __init__(self, sentence):
         self.sentence = sentence
@@ -21,10 +22,7 @@ class HuffmanCodingTree(object):
         self.codes = {}
 
     def create_tree(self, sentence):
-        frequency_map =  sorted(
-            Counter(sentence).items(),
-            key=itemgetter(1)
-        )
+        frequency_map = sorted(Counter(sentence).items(), key=itemgetter(1))
         tree_nodes = [BinaryTreeNode(i[0], i[1]) for i in frequency_map]
         return tree_nodes
 
@@ -50,6 +48,7 @@ class HuffmanCodingTree(object):
         self.encoder(node.left, encoded_data + "0")
         self.encoder(node.right, encoded_data + "1")
 
+
 def huffman_encoding(data):
     huffman_encoded = HuffmanCodingTree(data)
     huffman_encoded.encoder(huffman_encoded.tree)
@@ -73,20 +72,25 @@ def huffman_decoding(encoded_data, tree):
 
     return decoded_text
 
+
 if __name__ == "__main__":
     codes = {}
 
     a_great_sentence = "The bird is the word"
 
-    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print ("The content of the data is: {}\n".format(a_great_sentence))
+    print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
+    print("The content of the data is: {}\n".format(a_great_sentence))
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
 
-    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print ("The content of the encoded data is: {}\n".format(encoded_data))
+    print(
+        "The size of the encoded data is: {}\n".format(
+            sys.getsizeof(int(encoded_data, base=2))
+        )
+    )
+    print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
-    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print ("The content of the encoded data is: {}\n".format(decoded_data))
+    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print("The content of the encoded data is: {}\n".format(decoded_data))
