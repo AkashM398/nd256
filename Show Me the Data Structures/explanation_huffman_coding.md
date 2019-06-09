@@ -8,6 +8,7 @@ I implemented my solution to the challenge by defining a binary tree class `Bina
 
 - It takes logarithmic time to encode data; O(log n)
 - It takes linear time to decode data; O(n)
+- Therefore, the total time complexity if O(n lon n)
 
 ##### Space Complexity
 

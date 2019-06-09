@@ -35,7 +35,6 @@ class HuffmanCodingTree(object):
             merged_node = BinaryTreeNode(None, left_node.weight + right_node.weight)
             merged_node.left, merged_node.right = left_node, right_node
             heappush(tree, merged_node)
-
         return tree[0]
 
     def encoder(self, node, encoded_data=""):
@@ -52,24 +51,24 @@ class HuffmanCodingTree(object):
 def huffman_encoding(data):
     huffman_encoded = HuffmanCodingTree(data)
     huffman_encoded.encoder(huffman_encoded.tree)
-    encoded_data = ""
+    gotten_data = ""
     for char in data:
-        encoded_data += huffman_encoded.codes.get(char)
-    return encoded_data, huffman_encoded
+        gotten_data += huffman_encoded.codes.get(char)
+    return gotten_data, huffman_encoded
 
 
 def huffman_decoding(encoded_data, tree):
     code = ""
     decoded_text = ""
     decoded_codes = dict((v, k) for k, v in tree.codes.items())
-
+    if encoded_data is "":
+        decoded_text = tree.sentence
     for data in encoded_data:
         code += data
         if code in decoded_codes:
             char = decoded_codes[code]
             decoded_text += char
             code = ""
-
     return decoded_text
 
 
@@ -77,20 +76,50 @@ if __name__ == "__main__":
     codes = {}
 
     a_great_sentence = "The bird is the word"
+    numbers_in_sentence = "I got 1, 2, 3, 4, 5, 7, 8 M's in my bank accounts"
+    same_letter = "AAAAA"
+    space = " "
 
-    print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
+    print("The size of the data is: {!r}\n".format(sys.getsizeof(a_great_sentence)))
+    print("The content of the data is: {!r}\n".format(a_great_sentence))
+
+    print("The size of the data is: {!r}\n".format(sys.getsizeof(numbers_in_sentence)))
+    print("The content of the data is: {!r}\n".format(numbers_in_sentence))
+
+    print("The size of the data is: {!r}\n".format(sys.getsizeof(same_letter)))
+    print("The content of the data is: {!r}\n".format(same_letter))
+
+    print("The size of the data is: {!r}\n".format(sys.getsizeof(space)))
+    print("The content of the data is: {!r}\n".format(space))
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
+    encoded_numbers_in_sentence, numbers_in_sentence_tree = huffman_encoding(numbers_in_sentence)
+    encoded_same_letter, same_letter_tree = huffman_encoding(same_letter)
+    encoded_space, space_tree = huffman_encoding(space)
 
     print(
-        "The size of the encoded data is: {}\n".format(
-            sys.getsizeof(int(encoded_data, base=2))
+        "The size of the encoded data is: {} {} {}\n".format(
+            sys.getsizeof(int(encoded_data, base=2)),
+            sys.getsizeof(int(encoded_numbers_in_sentence, base=2)),
+            sys.getsizeof(encoded_same_letter),
+            sys.getsizeof(encoded_space)
         )
     )
-    print("The content of the encoded data is: {}\n".format(encoded_data))
+    print("The content of the encoded data is: {!r}\n".format(encoded_data))
+    print("The content of the encoded data is: {!r}\n".format(encoded_numbers_in_sentence))
+    print("The content of the encoded data is: {!r}\n".format(encoded_same_letter))
+    print("The content of the encoded data is: {!r}\n".format(encoded_space))
 
     decoded_data = huffman_decoding(encoded_data, tree)
+    decoded_numbers_in_sentence = huffman_decoding(encoded_numbers_in_sentence, numbers_in_sentence_tree)
+    decoded_same_letter = huffman_decoding(encoded_same_letter, same_letter_tree)
+    decoded_space = huffman_decoding(encoded_space, space_tree)
 
-    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+    print("The size of the decoded data is: {!r}\n".format(sys.getsizeof(decoded_data)))
+    print("The content of the encoded data is: {!r}\n".format(decoded_data))
+    print("The size of the decoded data is: {!r}\n".format(sys.getsizeof(decoded_numbers_in_sentence)))
+    print("The content of the encoded data is: {!r}\n".format(decoded_numbers_in_sentence))
+    print("The size of the decoded data is: {!r}\n".format(sys.getsizeof(decoded_space)))
+    print("The content of the encoded data is: {!r}\n".format(decoded_same_letter))
+    print("The size of the decoded data is: {!r}\n".format(sys.getsizeof(decoded_same_letter)))
+    print("The content of the encoded data is: {!r}\n".format(decoded_space))

@@ -68,12 +68,15 @@ def intersection(llist_1, llist_2):
     # Your Solution Here
     intersection = set()
     intersection_llist = LinkedList()
-    for i in llist_1:
-        if i in llist_2:
-            intersection.add(i)
+    if llist_1.head is None or llist_2.head is None:
+        return intersection_llist
+    else:
+        for i in llist_1:
+            if i in llist_2:
+                intersection.add(i)
 
-    for v in intersection:
-        intersection_llist.append(v)
+        for v in intersection:
+            intersection_llist.append(v)
 
     return intersection_llist
 
@@ -92,11 +95,11 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-print(linked_list_1)
-print(linked_list_2)
+print(f"linked_list_1 = {linked_list_1}")
+print(f"linked_list_2 = {linked_list_2}")
 
-print(union(linked_list_1, linked_list_2))
-print(intersection(linked_list_1, linked_list_2))
+print(f"union => {union(linked_list_1, linked_list_2)}")
+print(f"intersection => {intersection(linked_list_1, linked_list_2)}\n")
 
 # Test case 2
 
@@ -112,9 +115,25 @@ for i in element_1:
 for i in element_2:
     linked_list_4.append(i)
 
-print(linked_list_3)
-print(linked_list_4)
+print(f"linked_list_3 = {linked_list_3}")
+print(f"linked_list_4 = {linked_list_4}")
 
-print(union(linked_list_3, linked_list_4))
-print(intersection(linked_list_3, linked_list_4))
+print(f"union => {union(linked_list_3, linked_list_4)}")
+print(f"intersection => {intersection(linked_list_3, linked_list_4)}\n")
 
+
+# Test case 3
+
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+element_3 = list(range(5))
+
+for i in element_3:
+    linked_list_6.append(i)
+
+print(f"linked_list_5 = {linked_list_5}")
+print(f"linked_list_6 = {linked_list_6}")
+
+print(f"union => {union(linked_list_5, linked_list_6)}")
+print(f"intersection => {intersection(linked_list_5, linked_list_6)}\n")

@@ -62,23 +62,13 @@ class LRU_Cache(object):
     def __len__(self):
         return len(self._cache)
 
-    def __repr__(self):
-        cache_items = [node.value for node in self][1:-1]
-        cache_items.reverse()
-        return str(cache_items)
-
 
 our_cache = LRU_Cache(3)
 our_cache.set(1, 1)
-print(our_cache)  # [1]
 our_cache.set(2, 2)
-print(our_cache)  # [2, 1]
 our_cache.set(3, 3)
-print(our_cache)  # [3, 2, 1]
 our_cache.set(4, 4)
-print(our_cache)  # [4, 3, 2]
 our_cache.get(3)
-print(our_cache)  # [3, 4, 2]
 print(our_cache.get(1))  # returns -1
 print(our_cache.get(2))  # returns 2
 print(our_cache.get(3))  # return 3
